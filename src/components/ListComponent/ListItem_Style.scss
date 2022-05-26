@@ -1,0 +1,23 @@
+.listitem__wrapper {
+  width: 100%;
+  border: 1px solid silver;
+  padding: 10px;
+  .img {
+    width: 100px;
+    height: 100px;
+  }
+  .border {
+    padding: 10px;
+    border: 1px solid silver;
+  }
+  .settings {
+    width: 100px;
+    .img {
+      width: 24px;
+      height: 24px;
+    }
+    .dropdown {
+      right: -100px;
+    }
+  }
+}

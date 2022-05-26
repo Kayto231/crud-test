@@ -1,0 +1,19 @@
+.modal__wrapper {
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  width: 1200px;
+  height: 800px;
+  background: #fff;
+  border: 1px solid silver;
+  .form {
+    .label {
+      text-align: center;
+    }
+  }
+  .btns {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}

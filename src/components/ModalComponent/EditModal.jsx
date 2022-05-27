@@ -16,17 +16,18 @@ const EditModal = () => {
   const [size, setSize] = useState(
     editObject.size.height + "x" + editObject.size.width
   );
-  const [weight, setWeight] = useState(editObject.weigth);
+  const [weight, setWeight] = useState(editObject.weight);
 
   const [disabled, setDisabled] = useState(true);
+  console.log(editObject);
 
   useEffect(() => {
-    if (!productName || !imgUrl || !count || !size) {
+    if (!productName || !imgUrl || !count || !size || !weight) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
-  }, [productName, imgUrl, count, size]);
+  }, [productName, imgUrl, count, size, weight]);
 
   return (
     <div className="modal__wrapper d-column justify-center align-center">
@@ -74,8 +75,8 @@ const EditModal = () => {
         <div className="form__weight label d-column">
           <InputComponent
             type="text"
-            placeholder={"Weigth"}
-            LabelName="Weigth"
+            placeholder={"Weight"}
+            LabelName="Weight"
             classDOM={"input input__form"}
             state={weight}
             onchange={(e) => setWeight(e)}

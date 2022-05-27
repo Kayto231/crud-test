@@ -24,6 +24,8 @@ const ListComponent = ({ state }) => {
     dispatch(sortByTitleFunction(products));
   }, [products]);
 
+  console.log(products);
+
   return (
     <div className="listcomponent__wrapper">
       <ul className="sortPanel d-flex">

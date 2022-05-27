@@ -1,0 +1,12 @@
+.input {
+  outline: none;
+  height: 45px;
+  width: 300px;
+  padding-inline: 10px;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  &:focus {
+    width: 350px;
+  }
+}

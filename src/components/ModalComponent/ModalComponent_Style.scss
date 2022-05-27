@@ -10,8 +10,13 @@
   background: #fff;
   border: 1px solid silver;
   .form {
+    width: 100%;
+
     .label {
       text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
     }
   }
   .btns {

@@ -15,21 +15,22 @@ const ModalComponent = ({}) => {
   const [count, setCount] = useState("");
   const [size, setSize] = useState("");
   const [weight, setWeight] = useState("");
+  const [comments, setComments] = useState("");
 
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
-    if (!productName || !imgUrl || !count || !size) {
+    if (!productName || !imgUrl || !count || !size || !weight) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
-  }, [productName, imgUrl, count, size]);
+  }, [productName, imgUrl, count, size, weight]);
 
   return (
     <div className="modal__wrapper d-column justify-center align-center">
       <form className="form">
-        <div className="form__name label d-column">
+        <div className="form__name label d-column ">
           <InputComponent
             type="text"
             placeholder={"Product name..."}
@@ -53,7 +54,7 @@ const ModalComponent = ({}) => {
           <InputComponent
             type="text"
             placeholder={"Size name..."}
-            LabelName="Size: 200x200, 100x100"
+            LabelName={`Write Size in through "x" : 200x200, 100x100`}
             classDOM={"input input__form"}
             state={size}
             onchange={(e) => setSize(e)}
@@ -79,6 +80,16 @@ const ModalComponent = ({}) => {
             onchange={(e) => setWeight(e)}
           />
         </div>
+        <div className="form__comments label d-column">
+          <InputComponent
+            type="text"
+            placeholder={"Write comments in coma. "}
+            LabelName="Comments. Example: Comment1, Comment2"
+            classDOM={"input input__comments"}
+            state={comments}
+            onchange={(e) => setComments(e)}
+          />
+        </div>
       </form>
       <div className="btns d-flex justify-center align-center">
         <button
@@ -91,7 +102,7 @@ const ModalComponent = ({}) => {
           onClick={() =>
             dispatch(
               addNewProductFunction(
-                { productName, imgUrl, count, size, weight },
+                { productName, imgUrl, count, size, weight, comments },
                 products
               )
             )

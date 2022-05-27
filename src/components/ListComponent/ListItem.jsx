@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../../assets/images/dots.svg";
-import { deleteProductFunction } from "../../redux/actions/apiActions";
 import {
   changeAlertModalState,
   changeEditModalStateAction,
@@ -11,10 +10,19 @@ import {
 
 import "./ListItem_Style.scss";
 
-const ListItem = ({ id, imageUrl, name, count, size, weight, comments }) => {
+const ListItem = ({
+  id,
+  imageUrl,
+  name,
+  count,
+  size,
+  weight,
+  comments = [],
+}) => {
   const [isOpened, setIsOpened] = useState(false);
   const dispatch = useDispatch();
 
+  console.log(comments);
   const { isEditOpened, isAlertOpened } = useSelector((state) => state.modal);
   function editProduct() {
     dispatch(changeEditModalStateAction(!isEditOpened));
@@ -53,7 +61,7 @@ const ListItem = ({ id, imageUrl, name, count, size, weight, comments }) => {
         Weigth: {weight}{" "}
       </div>
       <div className="comments border d-flex justify-center align-center">
-        Comments: {comments?.map((comment) => comment + " ")}
+        Comments {comments.map((comment) => comment?.description)}
       </div>
       <div className="settings d-flex justify-center align-center">
         <img

@@ -1,5 +1,6 @@
 import React from "react";
 
+import "./InputComponent_Style.scss";
 const InputComponent = ({
   type,
   placeholder,

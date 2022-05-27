@@ -8,9 +8,16 @@ import {
   setEditObjectAction,
   setObjectToDeleteAction,
 } from "../../redux/actions/modalActions";
-import { deleteProductFunction } from "../../redux/actions/apiActions";
 
-const ProductItem = ({ id, imageUrl, name, count, size, weight, comments }) => {
+const ProductItem = ({
+  id,
+  imageUrl,
+  name,
+  count,
+  size,
+  weight,
+  comments = [],
+}) => {
   const [isOpened, setIsOpened] = useState(false);
   const dispatch = useDispatch();
   const { isEditOpened, isAlertOpened } = useSelector((state) => state.modal);
@@ -20,6 +27,7 @@ const ProductItem = ({ id, imageUrl, name, count, size, weight, comments }) => {
       setEditObjectAction({ id, imageUrl, name, count, size, weight, comments })
     );
   }
+  console.log(comments);
 
   function deleteItem() {
     dispatch(
@@ -68,7 +76,7 @@ const ProductItem = ({ id, imageUrl, name, count, size, weight, comments }) => {
           Weihgt of product is {weight}
         </div>
         <div className="comments d-flex justify-center align-center">
-          Comments {comments}
+          Comments {comments.map((comment) => comment?.description)}
         </div>
       </div>
     </div>

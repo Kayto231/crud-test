@@ -52,11 +52,18 @@ export const apiRequestFunction = () => {
   };
 };
 export const addNewProductFunction = (
-  { productName, imgUrl, count, size, weight },
+  { id, productName, imgUrl, count, size, weight, comments },
   products
 ) => {
   return async (dispatch) => {
     try {
+      const commentsArray = comments.split(",").map((comment) => ({
+        id: Math.random(),
+        productId: id,
+        description: comment,
+        date: Date.now(),
+      }));
+
       const [height, width] = size.split("x");
       const newObj = {
         name: productName,
@@ -64,8 +71,9 @@ export const addNewProductFunction = (
         count,
         size: { height, width },
         weight,
+        comments: commentsArray,
       };
-      console.log(newObj);
+
       const response = await axios
         .post(URLS.productURL, newObj)
         .then((res) => res.data);

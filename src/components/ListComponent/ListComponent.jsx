@@ -20,6 +20,10 @@ const ListComponent = ({ state }) => {
   );
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(sortByTitleFunction(products));
+  }, [products]);
+
   return (
     <div className="listcomponent__wrapper">
       <ul className="sortPanel d-flex">

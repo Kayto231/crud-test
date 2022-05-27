@@ -1,8 +1,31 @@
 .alertModal {
-  width: 300px;
-  height: 100px;
+  width: 900px;
+  height: 500px;
   position: absolute;
-  top: 40%;
-  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 100px;
   background: #fff;
+  border: 1px solid silver;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .text {
+    height: 50%;
+  }
+  .btns {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    align-self: flex-end;
+    justify-content: space-between;
+    width: 220px;
+
+    .delete {
+      background: red;
+      color: #fff;
+    }
+  }
 }

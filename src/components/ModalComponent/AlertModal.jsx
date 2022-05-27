@@ -4,18 +4,17 @@ import { deleteProductFunction } from "../../redux/actions/apiActions";
 import { changeAlertModalState } from "../../redux/actions/modalActions";
 import "./AlertModal_Style.scss";
 
-const AlertModal = ({ id, name }) => {
+const AlertModal = () => {
   const { isAlertOpened, objectToDelete } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
   return (
     <div className="alertModal">
-      <span>
+      <span className="text d-flex justify-center align-center">
         Are you sure that you want to delete the item: {objectToDelete.id}.
         {objectToDelete.name}.
       </span>
-      <div className="btns">
+      <div className="btns d-flex  ">
         <button
           className="btn"
           onClick={() => dispatch(changeAlertModalState(!isAlertOpened))}
@@ -27,7 +26,7 @@ const AlertModal = ({ id, name }) => {
             dispatch(deleteProductFunction({ id: objectToDelete.id }));
             dispatch(changeAlertModalState(!isAlertOpened));
           }}
-          className="btn"
+          className="btn delete"
         >
           Delete
         </button>
